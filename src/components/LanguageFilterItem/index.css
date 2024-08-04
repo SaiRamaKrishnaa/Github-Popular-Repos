@@ -1,0 +1,28 @@
+/* Write your CSS here */
+.language-filter-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.language-filter-button {
+  background-color: transparent;
+  border: 1px solid #d1d5db;
+  border-radius: 20px;
+  color: #1f2937;
+  cursor: pointer;
+  font-size: 14px;
+  padding: 5px 15px;
+  outline: none;
+}
+
+.language-btn:hover {
+  border-color: #0284c7;
+  color: #0284c7;
+}
+
+.active-language {
+  background-color: #e0f2fe;
+  border: 1px solid #0284c7;
+  border-radius: 20px;
+  color: #0284c7;
+}

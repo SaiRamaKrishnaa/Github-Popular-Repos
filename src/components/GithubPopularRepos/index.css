@@ -1,0 +1,36 @@
+/* Write your CSS here */
+.github-container {
+  width: 80%;
+  margin: auto;
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+}
+
+.github-heading {
+  font-size: 36px;
+  color: #1f2937;
+  margin-bottom: 20px;
+}
+
+.filter-list {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.repos-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.failure-view-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.failure-view-image {
+  width: 250px;
+  margin-top: 20px;
+}
