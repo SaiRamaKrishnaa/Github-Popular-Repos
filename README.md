@@ -1,76 +1,58 @@
-In this project, let's build a **Github Popular Repos** by applying the concepts we have learned till now.
 
-### Refer to the images below:
+# Github Popular Repos 
+live at: https://bestrepos.ccbp.tech/
 
- <br/>
- <div style="text-align: center;">
-     <img src="https://assets.ccbp.in/frontend/content/react-js/github-popular-repos-output.gif" alt="github popular repos output" style="max-width:70%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
- </div>
- <br/>
+## Overview
 
-**Failure View**
+The **Github Popular Repos** project is a React application that displays popular GitHub repositories. It features language filters to view repositories based on the selected programming language. The app handles loading states and error states for better user experience.
 
- <div style="text-align: center;">
-     <img src="https://assets.ccbp.in/frontend/content/react-js/github-popular-repos-error-view-output.gif" alt="github popular repos failure view output" style="max-width:70%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
- </div>
- <br/>
+![Github Popular Repos Output](https://assets.ccbp.in/frontend/content/react-js/github-popular-repos-output.gif)
 
-### Design Files
+## Features
 
-<details>
-<summary>Click to view</summary>
+- Fetches popular GitHub repositories based on selected programming languages.
+- Displays repositories in a card format with relevant details.
+- Handles loading state while fetching data.
+- Handles error state if data fetch fails.
+
+## Design Files
+
+### Responsive Design
 
 - [Extra Small (Size < 576px) and Small (Size >= 576px)](https://assets.ccbp.in/frontend/content/react-js/github-repos-sm-outputs.png)
 - [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - Success](https://assets.ccbp.in/frontend/content/react-js/github-repos-lg-success-output.png)
 - [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - Loading](https://assets.ccbp.in/frontend/content/react-js/github-repos-lg-loading-output.png)
 - [Medium (Size >= 768px), Large (Size >= 992px) and Extra Large (Size >= 1200px) - Failure](https://assets.ccbp.in/frontend/content/react-js/github-repos-error-view-lg-output.png)
 
-</details>
+## Set Up Instructions
 
-### Set Up Instructions
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/SaiRamaKrishnaa/Github-Popular-Repos.git
+    cd Github-Popular-Repos
+    ```
 
-<details>
-<summary>Click to view</summary>
+2. Install dependencies:
+    ```sh
+    npm install
+    ```
 
-- Download dependencies by running `npm install`
-- Start up the app using `npm start`
-</details>
+3. Start the application:
+    ```sh
+    npm start
+    ```
 
-### Completion Instructions
+## Functionalities
 
-<details>
-<summary>Functionality to be added</summary>
-<br/>
+- On initial load, fetches popular repositories with the default language filter set to `ALL`.
+- Displays a loader while fetching data.
+- Upon successful data fetch, displays the list of repositories.
+- On selecting a different language filter, fetches and displays repositories for the selected language.
+- Displays an error view if data fetch fails.
 
-The app must have the following functionalities
+## API Requests & Responses
 
-- When the app is opened initially,
-
-  - An HTTP GET request should be made to **githubReposApiUrl** with query parameter as `language` and its initial value as `ALL`
-  - **_loader_** should be displayed while fetching the data
-  - After the data is fetched successfully, display the repositories list received in the response
-
-- When a language filter is active
-
-  - An HTTP GET request should be made to the above-mentioned URL with the `id` of the active language
-  - **_loader_** should be displayed while fetching the data
-  - After the data is fetched successfully, display the repositories list received in the response
-
-- The `GithubPopularRepos` component is provided with `languageFiltersData`. It consists of a list of language filter objects with the following properties in each language filter object
-
-  |   Key    | Data Type |
-  | :------: | :-------: |
-  |    id    |  String   |
-  | language |  String   |
-
-</details>
-
-<details>
-
-<summary>API Requests & Responses</summary>
-<br>
-
-**githubReposApiUrl**
+### Github Repos API
 
 #### API: `https://apis.ccbp.in/popular-repos`
 
@@ -79,8 +61,7 @@ The app must have the following functionalities
 #### Method: `GET`
 
 #### Description:
-
-Returns a response containing the list of repositories
+Returns a response containing the list of popular repositories.
 
 #### Response
 
@@ -88,122 +69,19 @@ Returns a response containing the list of repositories
 {
   "popular_repos": [
     {
-	  "name": "freeCodeCamp",
+      "name": "freeCodeCamp",
       "id": 28457823,
       "issues_count": 154,
       "forks_count": 26651,
       "stars_count": 331304,
       "avatar_url": "https://avatars.githubusercontent.com/u/9892522?v=4"
     },
-      ...
-  ],
+    ...
+  ]
 }
 ```
 
-</details>
+## Component Structure
 
-<details>
-<summary>Components Structure</summary>
+![Component Breakdown Structure](https://assets.ccbp.in/frontend/content/react-js/github-popular-repos-component-breakdown-structure.png)
 
-<br/>
-<div style="text-align: center;">
-    <img src="https://assets.ccbp.in/frontend/content/react-js/github-popular-repos-component-breakdown-structure.png" alt="component-breakdown-structure" style="max-width:100%;box-shadow:0 2.8px 2.2px rgba(0, 0, 0, 0.12)">
-</div>
-<br/>
-
-</details>
-
-<details>
-<summary>Implementation Files</summary>
-<br/>
-
-Use these files to complete the implementation:
-
-- `src/components/GithubPopularRepos/index.js`
-- `src/components/GithubPopularRepos/index.css`
-- `src/components/LanguageFilterItem/index.js`
-- `src/components/LanguageFilterItem/index.css`
-- `src/components/RepositoryItem/index.js`
-- `src/components/RepositoryItem/index.css`
-</details>
-
-### Quick Tips
-
-<details close>
-<summary>Click to view</summary>
-<br>
-
-- To display the animated loader, we need to import the `Loader` component using the below statement
-
-  ```jsx
-  import Loader from 'react-loader-spinner'
-  ```
-
-- In order to display the given animated loader, pass the `type` and `color` props to the `Loader` component with values as **ThreeDots** and **#0284c7**, respectively
-
-  ```jsx
-  <Loader type="ThreeDots" color="#0284c7" height={80} width={80} />
-  ```
-
-    <br/>  
-  </details>
-
-### Important Note
-
-<details>
-<summary>Click to view</summary>
-
-<br/>
-
-**The following instructions are required for the tests to pass**
-
-- Wrap the `Loader` component with an HTML container element and add the `data-testid` attribute value as **loader** to it
-
-  ```jsx
-  <div data-testid="loader">
-    <Loader type="ThreeDots" color="#0284c7" height={80} width={80} />
-  </div>
-  ```
-
-</details>
-
-### Resources
-
-<details>
-<summary>Image URLs</summary>
-
-- [https://assets.ccbp.in/frontend/react-js/stars-count-img.png](https://assets.ccbp.in/frontend/react-js/stars-count-img.png) alt should be **stars**
-- [https://assets.ccbp.in/frontend/react-js/forks-count-img.png](https://assets.ccbp.in/frontend/react-js/forks-count-img.png) alt should be **forks**
-- [https://assets.ccbp.in/frontend/react-js/issues-count-img.png](https://assets.ccbp.in/frontend/react-js/issues-count-img.png) alt should be **open issues**
-- [https://assets.ccbp.in/frontend/react-js/api-failure-view.png](https://assets.ccbp.in/frontend/react-js/api-failure-view.png) alt should be **failure view**
-
-</details>
-
-<details>
-<summary>Colors</summary>
-
-<br/>
-
-<div style="background-color: #0284c7; width: 150px; padding: 10px; color: white">Hex: #0284c7</div>
-<div style="background-color: #ffffff; width: 150px; padding: 10px; color: black">Hex: #ffffff</div>
-<div style="background-color: #0f172a; width: 150px; padding: 10px; color: white">Hex: #0f172a</div>
-<div style="background-color: #f8f8ff; width: 150px; padding: 10px; color: black">Hex: #f8f8ff</div>
-<div style="background-color: #e73959; width: 150px; padding: 10px; color: white">Hex: #e73959</div>
-<div style="background-color: #1e293b; width: 150px; padding: 10px; color: white">Hex: #1e293b</div>
-
-</details>
-
-<details>
-<summary>Font-families</summary>
-
-- Roboto
-- Lobster
-
-</details>
-
-> ### _Things to Keep in Mind_
->
-> - All components you implement should go in the `src/components` directory.
-> - Don't change the component folder names as those are the files being imported into the tests.
-> - **Do not remove the pre-filled code**
-> - Want to quickly review some of the concepts you’ve been learning? Take a look at the Cheat Sheets.
